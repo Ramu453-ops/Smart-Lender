@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Lender - Loan Prediction</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(to right, #74ebd5, #9face6);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 420px;
+            margin: 70px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .approved {
+            color: green;
+        }
+
+        .rejected {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Smart Lender System</h2>
+
+    <label>Age</label>
+    <input type="number" id="age" placeholder="Enter Age">
+
+    <label>Income</label>
+    <input type="number" id="income" placeholder="Enter Income">
+
+    <label>Loan Amount</label>
+    <input type="number" id="loan" placeholder="Enter Loan Amount">
+
+    <button onclick="predictLoan()">Check Eligibility</button>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    function predictLoan() {
+        let age = document.getElementById("age").value;
+        let income = document.getElementById("income").value;
+        let loan = document.getElementById("loan").value;
+
+        let resultBox = document.getElementById("result");
+
+        // Simple rule-based logic (demo only)
+        if (income >= 50000 && loan <= 200000 && age >= 21) {
+            resultBox.innerHTML = "Loan Approved ✅";
+            resultBox.className = "result approved";
+        } else {
+            resultBox.innerHTML = "Loan Rejected ❌";
+            resultBox.className = "result rejected";
+        }
+    }
+</script>
+
+</body>
+</html>
